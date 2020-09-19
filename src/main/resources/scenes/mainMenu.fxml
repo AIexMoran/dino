@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="1041.0" style="-fx-background-color: linear-gradient(#fff2b0, #ffe97a);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="menu.MenuController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" style="-fx-background-color: linear-gradient(#fff2b0, #ffe97a);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.menu.MenuController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="467.0" minWidth="10.0" prefWidth="219.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="698.0" minWidth="10.0" prefWidth="603.0" />
@@ -30,17 +30,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="119.0" prefWidth="629.0" style="-fx-background-color: linear-gradient(#e66465, #9198e5); -fx-background-radius: 10px;" text="START" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" GridPane.rowIndex="1">
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#handleStartButton" prefHeight="119.0" prefWidth="715.0" style="-fx-background-color: linear-gradient(#e66465, #9198e5); -fx-background-radius: 10px;" text="START" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" GridPane.rowIndex="1">
                <font>
                   <Font name="Impact" size="51.0" />
                </font>
             </Button>
-            <Button fx:id="recordButton" mnemonicParsing="false" onAction="#handleRecordButton" prefHeight="119.0" prefWidth="621.0" style="-fx-background-color: linear-gradient(#9198e5, #e66465); -fx-background-radius: 10px;" text="RECORDS" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" GridPane.rowIndex="2">
+            <Button fx:id="recordButton" mnemonicParsing="false" onAction="#handleRecordButton" prefHeight="119.0" prefWidth="749.0" style="-fx-background-color: linear-gradient(#9198e5, #e66465); -fx-background-radius: 10px;" text="RECORDS" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" GridPane.rowIndex="2">
                <font>
                   <Font name="Impact" size="51.0" />
                </font>
             </Button>
-            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="119.0" prefWidth="610.0" style="-fx-background-color: linear-gradient(#e66465, #95c8f5); -fx-background-radius: 10px;" text="EXIT" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" GridPane.rowIndex="3">
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#handleExitButton" prefHeight="119.0" prefWidth="813.0" style="-fx-background-color: linear-gradient(#e66465, #95c8f5); -fx-background-radius: 10px;" text="EXIT" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" GridPane.rowIndex="3">
                <font>
                   <Font name="Impact" size="51.0" />
                </font>

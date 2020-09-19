@@ -1,15 +1,16 @@
-package window;
+package world.ucode.window;
 
-import javafx.scene.Node;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
 
 public class ScreenController {
 
-    private HashMap<GameScene, Scene> screenMap = new HashMap<>();
+    private HashMap<GameScene, Scene> scenesMap = new HashMap<>();
+    private HashMap<GameScene, FXMLLoader> loadersMap = new HashMap<>();
     private Stage stage;
     private static ScreenController instance;
 
@@ -24,16 +25,23 @@ public class ScreenController {
 
     }
 
-    public void addScreen(GameScene screen, Scene scene) {
-        screenMap.put(screen, scene);
+    public void addScreen(GameScene screen, FXMLLoader loader) {
+        try {
+            scenesMap.put(screen, new Scene(loader.load()));
+            loadersMap.put(screen, loader);
+        } catch (Exception e) {
+            System.exit(1);
+        }
     }
 
     public void removeScreen(GameScene scene) {
-        screenMap.remove(scene);
+        scenesMap.remove(scene);
+        loadersMap.remove(scene);
     }
 
-    public void activate(GameScene screen) {
-        stage.setScene(screenMap.get(screen));
+    public FXMLLoader activate(GameScene screen) {
+        stage.setScene(scenesMap.get(screen));
+        return loadersMap.get(screen);
     }
 
     public ScreenController init(Stage stage){

@@ -1,10 +1,14 @@
-package menu;
+package world.ucode.menu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import window.ScreenController;
+import world.ucode.playfield.PlayField;
+import world.ucode.window.ScreenController;
 
 public class MenuController {
 
@@ -31,7 +35,9 @@ public class MenuController {
     private void handleStartButton(ActionEvent e) {
         ScreenController screenController = ScreenController.getScreenController();
 
-        screenController.activate(ScreenController.GameScene.GAME_PLAY);
+        FXMLLoader ctrl = screenController.activate(ScreenController.GameScene.GAME_PLAY);
+        PlayField field = ctrl.getController();
+        field.startGame();
     }
 
     @FXML
