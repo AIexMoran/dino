@@ -47,6 +47,7 @@ public class PlayField {
     private void initKeys() {
         activeKeys.put("DOWN", false);
         activeKeys.put("UP", false);
+        activeKeys.put("SPACE", false);
     }
 
     private void initObjects() {
