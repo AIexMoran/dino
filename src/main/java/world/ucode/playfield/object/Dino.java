@@ -75,7 +75,7 @@ public class Dino implements GameObject {
                 }
             }
         }
-        if (activeKeys.get("UP") || activeKeys.get("SPACE") && direction == Direction.DEFAULT) {
+        if ((activeKeys.get("UP") || activeKeys.get("SPACE")) && direction == Direction.DEFAULT) {
             this.direction = Direction.UP;
         } else if (activeKeys.get("DOWN") && direction == Direction.DEFAULT) {
             this.direction = Direction.LIE;
