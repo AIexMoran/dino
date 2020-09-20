@@ -19,6 +19,7 @@ public class App extends Application {
 
             screenController.addScreen(ScreenController.GameScene.MAIN_MENU, new FXMLLoader(getClass().getClassLoader().getResource("scenes/mainMenu.fxml")));
             screenController.addScreen(ScreenController.GameScene.GAME_PLAY, new FXMLLoader(getClass().getClassLoader().getResource("scenes/playField.fxml")));
+            screenController.addScreen(ScreenController.GameScene.GAVE_OVER, new FXMLLoader(getClass().getClassLoader().getResource("scenes/gameOver.fxml")));
             screenController.activate(ScreenController.GameScene.MAIN_MENU);
             stage.setTitle("Hello");
             stage.show();

@@ -1,5 +1,6 @@
 package world.ucode.playfield.object;
 
+import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,13 +23,13 @@ public class Grounds implements GameObject {
         initImage(0, "assets/ground1.png");
         initImage(1, "assets/ground2.png");
         initImage(2, "assets/ground3.png");
+        IMAGE_WIDTH = groundsAssets[0].getImage().getWidth();
     }
 
     private static void initImage(int index, String asset) {
         Image image = new Image(asset, WIDTH, HEIGHT, true, true);
 
         groundsAssets[index] = new ImageView(image);
-        IMAGE_WIDTH = groundsAssets[0].getImage().getWidth();
     }
 
     public Grounds() {
@@ -45,7 +46,7 @@ public class Grounds implements GameObject {
     public void update(Hashtable<String, Boolean> activeKeys) {
         Ground last = grounds.getLast();
 
-        if (last != null && -last.x >= IMAGE_WIDTH) {
+        if (-last.x >= IMAGE_WIDTH) {
             last.x = (grounds.size() - 1)  * IMAGE_WIDTH;
             grounds.addFirst(last);
             grounds.removeLast();
@@ -60,6 +61,11 @@ public class Grounds implements GameObject {
         grounds.forEach(el -> {
             gc.drawImage(el.asset.getImage(), el.x, el.y);
         });
+    }
+
+    @Override
+    public Rectangle2D getRect() {
+        return null;
     }
 
     class Ground {

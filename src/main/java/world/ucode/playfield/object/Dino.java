@@ -1,28 +1,27 @@
 package world.ucode.playfield.object;
 
+import javafx.geometry.Rectangle2D;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import world.ucode.utils.ObjectTimer;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
+import java.util.*;
 
 public class Dino implements GameObject {
 
     private static HashMap<DinoState, ImageView> statesMap = new HashMap<>();
     private static final double WIDTH = 150;
     private static final double HEIGHT = 150;
-    private static final double SPEED = 15;
+    private static final double SPEED = 17;
     private static final double LEG_SECOND = 500 / SPEED * 7;
     private Direction direction = Direction.DEFAULT;
     private DinoState currentState = DinoState.UP_LEFT;
     private static final double START_Y = 350;
-    private static final double MAX_Y = 280;
+    private static final double MAX_Y = 340;
     private final double x = 50;
     private double y = START_Y;
-    private long lastTime = 0;
+    private ObjectTimer timer = new ObjectTimer();
 
 
     private enum DinoState {
@@ -60,7 +59,7 @@ public class Dino implements GameObject {
     @Override
     public void update(Hashtable<String, Boolean> activeKeys) {
         if (direction == Direction.DEFAULT || direction == Direction.LIE) {
-            if (System.currentTimeMillis() - lastTime >= LEG_SECOND) {
+            if (timer.isGone(LEG_SECOND)) {
                 if (direction == Direction.DEFAULT) {
                     if (currentState == DinoState.UP_LEFT) {
                         currentState = DinoState.UP_RIGHT;
@@ -74,7 +73,6 @@ public class Dino implements GameObject {
                         currentState = DinoState.DOWN_LEFT;
                     }
                 }
-                lastTime = System.currentTimeMillis();
             }
         }
         if (activeKeys.get("UP") && direction == Direction.DEFAULT) {
@@ -105,5 +103,16 @@ public class Dino implements GameObject {
             return;
         }
         gc.drawImage(statesMap.get(currentState).getImage(), x, y);
+    }
+
+    @Override
+    public Rectangle2D getRect() {
+        double width = statesMap.get(currentState).getImage().getWidth();
+        double height = statesMap.get(currentState).getImage().getHeight();
+
+        if (direction == Direction.LIE) {
+            return new Rectangle2D(this.x, this.y + 77, width, height);
+        }
+        return new Rectangle2D(this.x, this.y, width, height);
     }
 }

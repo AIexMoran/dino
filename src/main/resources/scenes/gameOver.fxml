@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1440.0" style="-fx-background-color: #F7F7F7;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="world.ucode.over.GameOver">
+   <children>
+      <ImageView fitHeight="61.0" fitWidth="993.0" layoutX="290.0" layoutY="129.0">
+         <image>
+            <Image url="@../assets/gameover_text.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="174.0" fitWidth="164.0" layoutX="316.0" layoutY="493.0" onMouseClicked="#handleMainMenu" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/main-character4.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="156.0" fitWidth="191.0" layoutX="955.0" layoutY="502.0" onMouseClicked="#handleGameOver" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/replay_button.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="scoreLabel" layoutX="397.0" layoutY="274.0" prefHeight="133.0" prefWidth="646.0" style="-fx-alignment: center;" text="Score:">
+         <font>
+            <Font name="Impact" size="96.0" />
+         </font>
+      </Label>
+      <Label layoutX="290.0" layoutY="682.0" prefHeight="76.0" prefWidth="177.0" style="-fx-alignment: center;" text="MENU">
+         <font>
+            <Font name="Impact" size="54.0" />
+         </font>
+      </Label>
+      <Label layoutX="970.0" layoutY="687.0" prefHeight="66.0" prefWidth="147.0" style="-fx-alignment: center;" text="RETRY">
+         <font>
+            <Font name="Impact" size="53.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
