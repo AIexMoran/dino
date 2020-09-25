@@ -26,12 +26,12 @@ public class Obstacles implements GameObject {
     private Random rand = new Random();
 
     static {
-        initImage(0, "assets/cactus1.png");
-        initImage(1, "assets/cactus2.png");
+        initImage(0, "/assets/cactus1.png");
+        initImage(1, "/assets/cactus2.png");
     }
 
     private static void initImage(int index, String asset) {
-        Image image = new Image(asset, WIDTH, HEIGHT, true, true);
+        Image image = new Image(Obstacles.class.getResource(asset).toString(), WIDTH, HEIGHT, true, true);
 
         cactusAssets[index] = new ImageView(image);
     }

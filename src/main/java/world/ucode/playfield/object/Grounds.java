@@ -20,16 +20,16 @@ public class Grounds implements GameObject {
     private static double IMAGE_WIDTH;
 
     static {
-        initImage(0, "assets/ground1.png");
-        initImage(1, "assets/ground2.png");
-        initImage(2, "assets/ground3.png");
+        initImage(0, "/assets/ground1.png");
+        initImage(1, "/assets/ground2.png");
+        initImage(2, "/assets/ground3.png");
         IMAGE_WIDTH = groundsAssets[0].getImage().getWidth();
     }
 
     private static void initImage(int index, String asset) {
-        Image image = new Image(asset, WIDTH, HEIGHT, true, true);
+            Image image = new Image(Grounds.class.getResource(asset).toString(), WIDTH, HEIGHT, true, true);
 
-        groundsAssets[index] = new ImageView(image);
+            groundsAssets[index] = new ImageView(image);
     }
 
     public Grounds() {

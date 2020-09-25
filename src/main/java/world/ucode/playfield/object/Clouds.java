@@ -5,6 +5,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.FileInputStream;
+import java.net.URL;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Random;
@@ -22,13 +24,13 @@ public class Clouds implements GameObject {
     private Random r = new Random();
 
     static {
-        initImage("assets/cloud.png");
+        initImage("/assets/cloud.png");
     }
 
     private static void initImage(String asset) {
-        Image image = new Image(asset, WIDTH, HEIGHT, true, true);
+            Image image = new Image(Clouds.class.getResource(asset).toString(), WIDTH, HEIGHT, true, true);
 
-        cloudAsset = new ImageView(image);
+            cloudAsset = new ImageView(image);
     }
 
     private void initClouds() {

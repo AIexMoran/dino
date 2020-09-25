@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.util.HashMap;
 
 public class ScreenController {
@@ -25,11 +26,15 @@ public class ScreenController {
 
     }
 
-    public void addScreen(GameScene screen, FXMLLoader loader) {
+    public void addScreen(GameScene screen, String resource) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(resource));
+        System.out.println(getClass());
         try {
             scenesMap.put(screen, new Scene(loader.load()));
             loadersMap.put(screen, loader);
         } catch (Exception e) {
+            e.printStackTrace();
             System.exit(1);
         }
     }

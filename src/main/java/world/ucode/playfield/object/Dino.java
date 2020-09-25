@@ -39,14 +39,14 @@ public class Dino implements GameObject {
     }
 
     static {
-        initImage(DinoState.UP_LEFT, "assets/upLeft.png");
-        initImage(DinoState.UP_RIGHT, "assets/upRight.png");
-        initImage(DinoState.DOWN_LEFT, "assets/downLeft.png");
-        initImage(DinoState.DOWN_RIGHT, "assets/downRight.png");
+        initImage(DinoState.UP_LEFT, "/assets/upLeft.png");
+        initImage(DinoState.UP_RIGHT, "/assets/upRight.png");
+        initImage(DinoState.DOWN_LEFT, "/assets/downLeft.png");
+        initImage(DinoState.DOWN_RIGHT, "/assets/downRight.png");
     }
 
     private static void initImage(DinoState state, String asset) {
-        Image image = new Image(asset, WIDTH, HEIGHT, true, true);
+        Image image = new Image(Dino.class.getResource(asset).toString(), WIDTH, HEIGHT, true, true);
         ImageView imageView = new ImageView(image);
 
         statesMap.put(state, imageView);
