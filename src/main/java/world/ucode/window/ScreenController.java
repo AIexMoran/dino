@@ -51,7 +51,7 @@ public class ScreenController {
 
     public ScreenController init(Stage stage){
         this.stage = stage;
-
+        stage.setResizable(false);
         return this;
     }
 
