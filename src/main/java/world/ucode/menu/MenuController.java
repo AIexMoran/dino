@@ -42,6 +42,5 @@ public class MenuController {
 
     @FXML
     private void handleRecordButton(ActionEvent e) {
-        System.out.println("record");
     }
 }

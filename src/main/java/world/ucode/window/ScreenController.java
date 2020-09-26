@@ -28,8 +28,8 @@ public class ScreenController {
 
     public void addScreen(GameScene screen, String resource) {
         FXMLLoader loader = new FXMLLoader();
+
         loader.setLocation(getClass().getResource(resource));
-        System.out.println(getClass());
         try {
             scenesMap.put(screen, new Scene(loader.load()));
             loadersMap.put(screen, loader);
